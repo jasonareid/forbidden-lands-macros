@@ -75,6 +75,11 @@ const pdfDirectory = [
         ]
     },
     {
+        name: "Forbidden Lands Customs", code:"FLCUST", directory: [
+            ["Table", 1],
+        ]
+    },
+    {
         name: "GMM: Wilderness Dressing", code: "GMM_WD", directory: [
             ["Features & Events", [
                 ["Campsite: Minor Events", 8],
