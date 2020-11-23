@@ -24,9 +24,11 @@ const pdfDirectory = [
                 ["Special Effects", 68],
                 ["Healing Injuries", 71],
                 ["Equipment", 73],
+                ["Services", 76],
+                ["Weapons", 77],
             ]],
             ["THE SOCIETY AND THE HEADQUARTERS", [
-                ["The History of the Societ", 80],
+                ["The History of the Society", 80],
                 ["The Society is Reborn", 83],
                 ["Campaign Rules", 86],
             ]],
@@ -72,6 +74,11 @@ const pdfDirectory = [
             ["Random Event Table", 55],
             ["Location Tables", 60],
             ["Example Sessions", 70],
+        ]
+    },
+    {
+        name: "Ex Novo", code:"EXNOVO", directory: [
+            ["History", 8],
         ]
     },
     {
@@ -684,13 +691,7 @@ const toolsDirectory = [
             ["Fantasy Name Generator: Norwegian", "https://www.fantasynamegenerators.com/norwegian-names.php#result"],
             ["Fantasy Name Generator: Finnish", "https://www.fantasynamegenerators.com/finnish-names.php#result"],
             ["Fantasy Name Generator: Danish", "https://www.fantasynamegenerators.com/danish-names.php#result"],
-            ["Kassoon Town Generator+", "https://www.kassoon.com/dnd/town-generator/"],
-            ["Chaotic Shiny", "http://chaoticshiny.com/index.php"],
-            ["Donjon", [
-                ["Fantasy Random", "https://donjon.bin.sh/fantasy/random/"],
-                ["Dungeon", "https://donjon.bin.sh/fantasy/dungeon/"],
-                ["Town Map", "https://donjon.bin.sh/fantasy/town/"],
-            ]],
+            ["Wikipedia", "https://en.wikipedia.org"],
         ]
     },
 ];

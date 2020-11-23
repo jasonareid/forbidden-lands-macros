@@ -786,6 +786,7 @@ const pdfDirectory = [
 const toolsDirectory = [
     {name: "Generators", directory: [
         ["Forbidden Lands Session Generator", "https://perchance.org/fl-session-generator"],
+        ["Wyrmtales", "http://wyrmtales.net/"],
         ["Fantasy Name Generator", "https://www.fantasynamegenerators.com/"],
         ["Kassoon Town Generator+", "https://www.kassoon.com/dnd/town-generator/"],
         ["Chaotic Shiny", "http://chaoticshiny.com/index.php"],
