@@ -1,207 +1,45 @@
 const pdfDirectory = [
-    {name: "Player's Handbook", code: "CORE_PHB", directory: [
-        ["Your Adventurer", [
-            ["Kin", 14],
-            ["Profession", 22],
-            ["Druid", 23],
-            ["Fighter", 24],
-            ["Hunter", 25],
-            ["Minstrel", 26],
-            ["Peddler", 27],
-            ["Rider", 28],
-            ["Rogue", 29],
-            ["Sorcerer", 30],
-            ["Age", 31],
-            ["Attributes", 31],
-            ["Skills", 32],
-            ["Talents", 33],
-            ["Pride", 34],
-            ["Dark Secret", 36],
-            ["Relationships", 36],
-            ["Gear", 36],
-            ["Encumbrance", 37],
-            ["Consumables", 38],
-            ["Appearance", 39],
-            ["Name", 39],
-            ["Experience", 39],
-            ["Develop Your Character", 40],
-            ["Reputation", 40],
+    {name: "Core Book", code: "CORE", directory: [
+        ["Character Creation", [
+            ["Ancestries", [
+                ["Human", 11],
+                ["Changeling", 13],
+                ["Clockwork", 15],
+                ["Dwarf", 17],
+                ["Goblin", 19],
+                ["Orc", 21],
+            ]],
         ]],
-        ["Skills", [
-            ["Roll the Dice", 42],
-            ["Pushing Your Roll", 44],
-            ["Only One Chance", 46],
-            ["Group Rolls", 47],
-            ["Modification", 47],
-            ["Difficulty", 47],
-            ["Opposed Rolls", 49],
-            ["NPCs and Skills", 49],
-            ["Gear", 49],
-            ["Artifact Dice", 50],
-            ["Pride", 50],
-            ["The Skills", 51],
+        ["Playing the Game", [
+            ["Damage", 39],
+            ["Afflictions", 41],
+            ["The Environment", 42],
+            ["Combat", [
+                ["The Battlefield", 46],
+                ["Awareness / Surprise", 46],
+                ["Rounds", 46],
+                ["Move", 47],
+                ["Action", 48],
+                ["Attacks", 50],
+            ]]
         ]],
-        ["Talents", [
-            ["Intro", 59],
-            ["Kin Talents", 62],
-            ["The Druid’s Talents", 63],
-            ["The Fighter’s Talents", 64],
-            ["The Hunter’s Talents", 65],
-            ["The Minstrel’s Talents", 67],
-            ["The Peddler’s Talents", 68],
-            ["The Rider’stalents", 69],
-            ["The Rogue’s Talents", 70],
-            ["The Sorcerer’s Talents", 71],
-            ["General Talents", 72],
-        ]],
-        ["Combat & Damage", [
-            ["Rounds & Initiative", 83],
-            ["Slow & Fast Actions", 85],
-            ["Zones & Range", 86],
-            ["Ambushes & Sneak Attacks", 90],
-            ["Close Combat", 90],
-            ["Ranged Combat", 97],
-            ["Social Conflict", 98],
-            ["Weapons", 100],
-            ["Damage", 104],
-            ["Broken", 107],
-            ["Recovery", 108],
-            ["Critical Injuries", 108],
-            ["Conditions", 111],
-            ["Fear", 112],
-            ["Darkness", 112],
-            ["Falling", 113],
-            ["Drowning", 113],
-            ["Poison", 113],
-            ["Disease", 114],
-            ["Riding Animals", 115],
-        ]],
+        ["Novice Paths", 53],
+        ["Expert Paths", 59],
+        ["Master Paths", 77],
+        ["Equipment", 99],
         ["Magic", [
-            ["Spells", 116],
-            ["General Spells", 120],
-            ["Healing", 123],
-            ["Shapeshifting", 125],
-            ["Awareness", 128],
-            ["Symbolism", 130],
-            ["Stone Song", 133],
-            ["Blood Magic", 137],
-            ["Death Magic", 139],
+            ["Spells", 111],
+            ["Traditions", 115],
         ]],
-        ["Journeys", [
-            ["The Map", 143],
-            ["Quarters of the Day", 144],
-            ["Hike", 145],
-            ["Lead the Way", 147],
-            ["Keep Watch", 149],
-            ["Forage", 150],
-            ["Hunt", 151],
-            ["Fish", 153],
-            ["Make Camp", 154],
-            ["Rest", 155],
-            ["Sleep", 156],
-            ["Explore", 157],
-            ["Sea Travel", 157],
-        ]],
-        ["The Stronghold", [
-            ["Establishing a Stronghold", 158],
-            ["Effects of a Stronghold", 159],
-            ["Functions & Hirelings", 160],
-            ["Keeping Watch", 164],
-            ["Upkeep", 164],
-            ["Functions", 165],
-            ["Hirelings", 173],
-            ["Events at the Stronghold", 175],
-            ["Battles at the Stronghold", 175],
-        ]],
-        ["Gear", 179],
-        ["Critical Injuries", 196],
-    ]},
-    {name: "Gamemaster's Guide", code: "CORE_GMG", directory: [
-        ['Kin', [
-            ["Humans", 43],
-            ["Elves", 52],
-            ["Dwarves", 56],
-            ["Ogres", 60],
-            ["Orcs", 62],
-            ["Wolfkin", 67],
-            ["Saurians", 68],
-            ["Whiners", 69],
-            ["Halflings / Goblins", 70],
-        ]],
-        ['Bestiary', [
-            ["Monsters in Combat", 73],
-            ["Abyss Worm", 76],
-            ["Bloodling", 78],
-            ["Demon", 80],
-            ["Death Knight", 86],
-            ["Dragon", 88],
-            ["Drakewyrm", 90],
-            ["Ent", 92],
-            ["Ghost", 94],
-            ["Giant", 96],
-            ["Giant Squid", 98],
-            ["Gray Bear", 100],
-            ["Gryphon", 102],
-            ["Harpies", 104],
-            ["Hydra", 106],
-            ["Insectoids", 108],
-            ["Manticore", 110],
-            ["Minotaur", 112],
-            ["Nightwargs", 114],
-            ["Sea Serpent", 116],
-            ["Strangling Vine", 118],
-            ["Troll", 120],
-            ["Undead", 122],
-            ["Wyvern", 124],
-        ]],
-        ['Random Encounters', 146],
-        ['Adventure Sites', [
-            ["Main", 167],
-            ["Creating a Village", 168],
-            ["Creating a Dungeon", 172],
-            ["Creating a Castle", 178],
-            ["Creating NPCs", 183],
-            ["Creating Treasure", 186],
-        ]],
-        ['The Hollows', 194],
-    ]},
-    {name: "Legends & Adventurers", code: "CORE_LNA", directory: [
-        ["Reference Guide", 2],
-        ["Backstories", [
-            ["Kin", 3],
-            ["Home Region", 4],
-            ["Childhood, Alderlander", 5],
-            ["Childhood, Aslene", 6],
-            ["Childhood, Ailander", 7],
-            ["Childhood, Half-Elf", 8],
-            ["Childhood, Halfling", 9],
-            ["Childhood, Goblin", 10],
-            ["Childhood, Orc", 11],
-            ["Childhood, Wolfkin", 12],
-            ["Childhood, Dwarf", 13],
-            ["Childhood, Elf", 14],
-            ["Profession & Talent", 15],
-            ["Formative Events, Druid", 16],
-            ["Formative Events, Hunter", 17],
-            ["Formative Events, Fighter", 18],
-            ["Formative Events, Sorceror", 19],
-            ["Formative Events, Peddler", 20],
-            ["Formative Events, Rider", 21],
-            ["Formative Events, Minstrel", 22],
-            ["Formative Events, Rogue", 23],
-            ["How Did You Meet?", 24],
-        ]],
-        ["Legend Generator", 27],
-        ["Monster Generator", 32],
-    ]},
-    {name: "Combat Cheat Sheet", code: "FL_CG", directory: [
-            ["Main", 1],
-    ]},
-    {name: "Travel Cheat Sheet", code: "FL_TG", directory: [
-            ["Main", 1],
+        ["A Land in Shadow", [
+            ["The Northern Reach", 163]
+        ]]
     ]},
     {name: "Dungeon World: Perilous Wilds", code: "DW_TPW", directory: [
-        ["Plumb the Depths", 54],
+        ["Lead the Way: Followers", 18],
+        ["See the World: Travel", 24],
+        ["Weather the Storm: Weather", 32],
+        ["Plumb the Depths: Dungeons", 54],
         ["Name Every Person", 66],
     ]},
     {name: "GMM: Wilderness Dressing", code: "GMM_WD", directory: [
@@ -766,24 +604,12 @@ const pdfDirectory = [
             ["Viking Names", 39]
         ]]
     ]},
-    {name: "Scarlet Heroes", code: "SCARH", directory: [
-        ["Solo gaming", [
-            ["General Oracles", 115],
-            ["Actors, Relationships, & Reactions", 116],
-            ["Urban Adventures", 118],
-            ["Urban Adventure Scenes", 120],
-            ["Wilderness Adventures", 122],
-            ["Wilderness Terrain & Features", 123],
-            ["Wilderness Events", 124],
-            ["Dungeon Adventures", 125],
-            ["Dungeon Types, Sizes, & Inhabitants", 126],
-            ["Dungeon Places, Loot, & Dangers", 127],
-            ["Dungeon Features", 128]
-        ]]
-    ]},
 ];
 
 const toolsDirectory = [
+    {name: "Game", directory: [
+        ["SotDL Reference Tables", "https://schwalbentertainment.com/play-aids/shadow-of-the-demon-lord-reference-tables/"],
+    ]},
     {name: "Generators", directory: [
         ["Forbidden Lands Session Generator", "https://perchance.org/fl-session-generator"],
         ["Wyrmtales", "http://wyrmtales.net/"],
@@ -818,7 +644,7 @@ class WebTool extends Application {
     }
 }
 
-class ForbiddenLandsIndex extends Application {
+class SotdlIndex extends Application {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             title: "Index",
@@ -867,7 +693,17 @@ class ForbiddenLandsIndex extends Application {
                     if(entry[1]) {
                         html += '<ul style="display:none">';
                         entry[1].forEach(subEntry => {
-                            html += `<li style="cursor:pointer" class='entry' data-page="${subEntry[1]}">${subEntry[0]}</li>`;
+                            if(Number.isInteger(subEntry[1])) {
+                                html += `<li style="cursor:pointer" class='entry' data-page="${subEntry[1]}">${subEntry[0]}</li>`;
+                            } else {
+                                html += `<li style="cursor:pointer;" class='folder'">${subEntry[0]}`;
+                                html += '<ul style="display:none">';
+                                subEntry[1].forEach(subSubEntry => {
+                                    html += `<li style="cursor:pointer" class='entry' data-page="${subSubEntry[1]}">${subSubEntry[0]}</li>`;
+                                });
+                                html += '</ul>'
+                                html += '</li>';
+                            }
                         })
                         html += '</ul>';
                     }
@@ -890,7 +726,7 @@ class ForbiddenLandsIndex extends Application {
                     if (tool[1]) {
                         html += '<ul style="display:none">';
                         tool[1].forEach(subTool => {
-                            html += `<li style="cursor:pointer" class='tool' data-name="${tool[0]}" data-url="${subTool[1]}">${subTool[0]}</li>`;
+                            html += `<li style="cursor:pointer" class='tool' data-name="${tool[0]}" data-url="${subTool[1]}">${subTool[0]}`;
                         })
                         html += '</ul>';
                     }
@@ -906,4 +742,4 @@ class ForbiddenLandsIndex extends Application {
     }
 }
 
-new ForbiddenLandsIndex().render(true);
+new SotdlIndex().render(true);

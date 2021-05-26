@@ -741,7 +741,7 @@ class VaesenIndex extends Application {
             let $entry = $(ev.currentTarget);
             let page = parseInt($entry.data('page'));
             let bookCode = $entry.closest('.book').data('code');
-            ui.PDFoundry.openPDFByCode(bookCode, page);
+            ui.PDFoundry.openPDFByCode(bookCode, {page: page});
         });
 
         html.find('.tool').on('click', (ev) => {
