@@ -35,6 +35,9 @@ const pdfDirectory = [
             ["The Northern Reach", 163]
         ]]
     ]},
+    {name: "Cheat Sheet", code: "CHEAT", directory: [
+        ["Sheet", 1],
+    ]},
     {name: "Dungeon World: Perilous Wilds", code: "DW_TPW", directory: [
         ["Lead the Way: Followers", 18],
         ["See the World: Travel", 24],
@@ -604,6 +607,115 @@ const pdfDirectory = [
             ["Viking Names", 39]
         ]]
     ]},
+    {name: "d30 DM Companion", code: "D30_DMC", directory: [
+        ["INTRO", [
+            ["Using This Book", 3],
+            ["Dungeon Mapping Master Key", 4],
+            ["Dungeon Crawl Worksheet", 5],
+        ]],
+        ["QUICK CHARACTER GENERATION", [
+            ["Classed Character Attribute Generator (quick slot-based attribute generation for classed characters)", 6],
+            ["Motivations (30 character motivations for freelance adventurers)", 6],
+            ["Quick Character Inventory: Weapons, Armor, and Class-specific Equipment", 7],
+        ]],
+        ["DUNGEON FEATURES", [
+            ["Dungeon Features (General): Walls, Floors, and Doors", 8],
+            ["Miscellaneous Dungeon Embellishments", 9],
+            ["Miscellaneous Dungeon Debris", 10],
+            ["Molds, Slimes, and Mushrooms", 11],
+            ["Room Trap Generator", 12],
+            ["Treasure Containers & Protection and Miscellaneous Magic Trap Effects", 13],
+            ["Poison Generator", 13],
+        ]],
+        ["MONSTERS", [
+            ["Monster Encounters: Overview, Number Appearing Determination Chart", 14],
+            ["Monster Encounter Tables: Levels 1-3", 15],
+            ["Monster Encounter Tables: Levels 4-5", 16],
+            ["Edition Guide to Monster Listings", 16],
+            ["Monster Encounter Tables: Levels 6-7", 17],
+            ["Monster Encounter Tables: Levels 8-9", 18],
+            ["Monster Encounter Descriptions: Human and Demi-human", 19],
+            ["Monster Encounter Descriptions: Ant, Giant Driver - Copper Colossus", 20],
+            ["Monster Encounter Descriptions: Corroder - Ghoul", 21],
+            ["Monster Encounter Descriptions: Giant, Cloud - Hellhound", 22],
+            ["Monster Encounter Descriptions: Hobghoul - Lycanthrope, Weretiger", 23],
+            ["Monster Encounter Descriptions: Lycanthrope, Werewolf - Shrieker", 24],
+            ["Monster Encounter Descriptions: Skeleton - Zombie", 25],
+        ]],
+        ["TREASURE", [
+            ["Quick Treasure Horde Generation I: Overview, Gems, Jewels", 26],
+            ["Quick Treasure Horde Generation: II Copper, Silver, Electrum, Gold, Platinum", 27],
+            ["Quick Treasure Horde Generation III: Magic Items, Individual Treasure Types", 28],
+            ["Gems and Gem-centric Jewelry", 29],
+            ["Elven/Dwarven Jewelry", 29],
+            ["Magic Items I: Weapons, Armor, and Protective Items", 30],
+            ["Magic Items II: Scrolls", 31],
+            ["Magic Items III: Potions", 32],
+            ["Magic Items IV: Summon/Control/Command Items", 33],
+            ["Magic Items V: Miscellaneous Magic Items I", 34],
+            ["Magic Items VI: Miscellaneous Magic Items II", 35],
+        ]]
+    ]},
+    {name: "d30 Sandbox", code: "D30_SBX", directory: [
+            ["INTRO", [
+                ["Using This Book", 3],
+                ["Wilderness Mapping Key", 6],
+                ["Hex Crawl Worksheet", 7],
+                ["Settlement Worksheet", 8],
+                ["NPC Record Sheet", 9],
+            ]],
+            ["ADVENTURE GENERATOR", [
+                ["Adventure Generator Tables I", 10],
+                ["Adventure Generator Tables II", 11],
+            ]],
+            ["WILDERNESS LOCATIONS & LOCALES", [
+                ["Prevailing Weather Conditions", 12],
+                ["Weather Events", 13],
+                ["Off-course Determination", 14],
+                ["Foraging & Hunting", 15],
+                ["Natural Features & Phenomena", 16],
+                ["Natural Features & Phenomena Defns", 17],
+                ["Settlements & Inhabitation", 18],
+                ["Ruins Generator", 19],
+                ["Temple Generator", 20],
+                ["Cult Generator", 21],
+                ["Magical Places Generator", 22],
+                ["Pilgrims Generator", 23],
+                ["Road Encounters", 24],
+                ["Stronghold: Owner and Patrol", 26],
+                ["Stronghold: Construction", 27],
+                ["Heraldry Generator", 28],
+                ["Expanded Heraldry", 29],
+            ]],
+            ["SETTLEMENTS", [
+                ["Settlement Background", 30],
+                ["Assorted Settlement Encounters", 31],
+                ["City Guards & Patrols", 32],
+                ["Torture & Execution", 33],
+                ["Settlement Suppliers", 34],
+                ["Shops & Shopkeepers", 35],
+                ["Tavern Names", 36],
+                ["Taverns", 37],
+            ]],
+            ["NPCs", [
+                ["Classed NPCs: Summaries", 38],
+                ["Classed NPCs: Abilities", 39],
+                ["Classed NPCs: Inventory", 40],
+                ["Classed NPCs: Magic Items", 41],
+                ["Occupations", 42],
+                ["Nobles and Households", 43],
+                ["Sages", 44],
+                ["Physical Traits", 46],
+                ["Persona & Behavior", 47],
+                ["Background, Eccentricities, and Talents", 48],
+                ["Language Determination", 49],
+                ["Henchmen/Hirelings", 50],
+                ["Henchmen/Hirelings Reactions", 50],
+                ["Henchmen/Hirelings Recruitment Modifiers", 51],
+                ["Retainer Loyalty", 51],
+            ]],
+        ]
+    }
 ];
 
 const toolsDirectory = [
