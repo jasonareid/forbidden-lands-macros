@@ -1,4 +1,5 @@
-const tagsCompendium = "world.swn-world-tags"
+const tagsCompendium = "world.swn-world-tags";
+const tagsExCompendium = "world.swnex-expanded-world-gen";
 
 function randomPlanet(planets) {
     return planets[Math.floor(Math.random() * planets.length)];
@@ -7,14 +8,21 @@ function randomPlanet(planets) {
 function parseReferences(tags) {
     let split = tags.split(/[\@\s\{]/);
     let entryRefs = split.filter(s => s.startsWith("Compendium"));
-    let tagsRefs = entryRefs.filter(s => s.indexOf(tagsCompendium) > -1);
-    let entryIds = tagsRefs.map(tR => tR.match(/swn-world-tags\.(.*)\]/)[1])
+    let tagsRefs = entryRefs.filter(s => s.indexOf(tagsCompendium) > -1 || s.indexOf(tagsExCompendium) > -1);
+    let entryIds = tagsRefs.map(tR => {
+        if(tR.indexOf(tagsCompendium) > -1) {
+            console.log(tR);
+            return {pack: tagsCompendium, id: tR.match(/swn-world-tags\.(.*)\]/)[1]};
+        } else {
+            return {pack: tagsExCompendium, id: tR.match(/swnex-expanded-world-gen\.(.*)\]/)[1]};
+        }
+    })
     return entryIds;
 }
 
 async function resolveDocuments(references) {
     return await Promise.all(references.map(async (r) => {
-        return await game.packs.get(tagsCompendium).getDocument(r);
+        return await game.packs.get(r.pack).getDocument(r.id);
     }))
 }
 
@@ -52,15 +60,15 @@ function parseNeeds(seed) {
     let needs = [];
     let split = seed.split(/[^A-Za-z0-9]+/);
     split.forEach(w => {
-        if (w === 'Enemy') {
+        if (w === 'Enemy' || w === 'Enemies') {
             needs.push('E');
-        } else if (w === 'Friend') {
+        } else if (w === 'Friend' || w === 'Friends') {
             needs.push('F');
-        } else if (w === 'Complication') {
+        } else if (w === 'Complication' || w === 'Complications') {
             needs.push('C');
-        } else if (w === 'Thing') {
+        } else if (w === 'Thing' || w === 'Things') {
             needs.push('T');
-        } else if (w === 'Place') {
+        } else if (w === 'Place' || w === 'Places') {
             needs.push('P');
         }
     });
