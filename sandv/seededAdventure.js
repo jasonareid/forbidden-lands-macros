@@ -74,28 +74,91 @@ function meetNeed(need, tagDocuments) {
     return met;
 }
 
-let sector = game.actors.get("z1OUmGMahPYgQctB");
-let planets = sector.items.contents.filter(i => i.data.type === 'planet');
-let planet = randomPlanet(planets);
-console.log(planet.name);
-let tagDocuments = await parseTagDocuments(planet.data.data.tags)
-let seedsId = game.packs.get("world.swn").index.contents.filter(i => i.name === 'Adventure Seeds')[0]._id;
-let table = await game.packs.get("world.swn").getDocument(seedsId);
+async function getAdventure(planetID) {
+    let sector = game.actors.get("z1OUmGMahPYgQctB");
+    let planets = sector.items.contents.filter(i => i.data.type === 'planet' && i.id === planetID);
+    let planet = randomPlanet(planets);
+    let resultHtml = '';
+    console.log(planet.name);
+    resultHtml += `<h4>@Item[${planetID}]{${planet.name}}</h4>`;
 
-let res = await table.draw({displayChat: false});
-console.log(res.results[0].data.text);
-let needs = parseNeeds(res.results[0].data.text)
-let draws = {};
-needs.forEach(n => {
-    let met = meetNeed(n, tagDocuments);
-    if (!draws[met.key]) {
-        draws[met.key] = [];
+    let tagDocuments = await parseTagDocuments(planet.data.data.tags)
+    let seedsId = game.packs.get("world.swn").index.contents.filter(i => i.name === 'Adventure Seeds')[0]._id;
+    let table = await game.packs.get("world.swn").getDocument(seedsId);
+
+    let res = await table.draw({displayChat: false});
+    console.log(res.results[0].data.text);
+    resultHtml += `<p>${res.results[0].data.text}</p>`;
+    let needs = parseNeeds(res.results[0].data.text)
+    let draws = {};
+    needs.forEach(n => {
+        let met = meetNeed(n, tagDocuments);
+        if (!draws[met.key]) {
+            draws[met.key] = [];
+        }
+        draws[met.key].push(met.value);
+    })
+    let keys = ['E', 'F', 'C', 'T', 'P'];
+    resultHtml += `<table>`;
+    keys.forEach(k => {
+        if (draws[k]) {
+            console.log(k + ":" + JSON.stringify(draws[k]))
+            resultHtml += `<tr>`;
+            resultHtml += `<td width="5%">${k}</td>`;
+            resultHtml += `<td width="94%">${JSON.stringify(draws[k])}</td>`;
+            resultHtml += `</tr>`;
+        }
+    });
+    resultHtml += `</table>`;
+    return resultHtml;
+}
+
+class SeededAdventure extends Application {
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            title: "Adventure",
+            width: 480,
+            height: 480,
+            resizable: true,
+        });
     }
-    draws[met.key].push(met.value);
-})
-let keys = ['E', 'F', 'C', 'T', 'P'];
-keys.forEach(k => {
-    if (draws[k]) {
-        console.log(k + ":" + JSON.stringify(draws[k]))
+    _renderInner(data, options) {
+        let sector = game.actors.get("z1OUmGMahPYgQctB");
+        let planets = sector.items.contents.filter(i => i.data.type === 'planet');
+
+        let html = `<div>`;
+        html += `<h3>Planets</h3>`;
+        html += `<div>`;
+        html += `<table><tr>`
+        planets.forEach((p, i) => {
+            html += '<td>';
+            html += `<span class="planetName" id="${p.id}">${p.name}</span>&nbsp;`
+            html += '</td>';
+            if (i % 3 === 2) {
+                html += '</tr>';
+                if(i < planets.length - 1) {
+                    html += '<tr>';
+                }
+            }
+        });
+        if (planets.length % 3 !== 2) {
+            html += '</tr>';
+        }
+        html += '</table>';
+        html += `</div>`;
+        html += `<div id="output">`;
+        html += `</div>`;
+        html += `</div>`;
+        return $(html);
     }
-});
+    activateListeners(html) {
+        super.activateListeners(html);
+        html.find('.planetName').on('click', async (ev) => {
+            let inner = await getAdventure($(ev.currentTarget).attr('id'));
+            console.log(TextEditor.enrichHTML(inner));
+            html.find('#output').html(TextEditor.enrichHTML(inner));
+        });
+    }
+}
+
+new SeededAdventure().render(true);
