@@ -1,3 +1,4 @@
+const SECTOR_ACTOR_ID = "z1OUmGMahPYgQctB";
 const tagsCompendium = "world.swn-world-tags";
 const tagsExCompendium = "world.swnex-expanded-world-gen";
 
@@ -83,12 +84,12 @@ function meetNeed(need, tagDocuments) {
 }
 
 async function getAdventure(planetID) {
-    let sector = game.actors.get("z1OUmGMahPYgQctB");
+    let sector = game.actors.get(SECTOR_ACTOR_ID);
     let planets = sector.items.contents.filter(i => i.data.type === 'planet' && i.id === planetID);
     let planet = randomPlanet(planets);
     let resultHtml = '';
     console.log(planet.name);
-    resultHtml += `<h4>@Item[${planetID}]{${planet.name}}</h4>`;
+    resultHtml += `<h2 style="cursor:pointer" class="planetName" data-planet-id="${planetID}">${planet.name}</h2>`;
 
     let tagDocuments = await parseTagDocuments(planet.data.data.tags)
     let seedsId = game.packs.get("world.swn").index.contents.filter(i => i.name === 'Adventure Seeds')[0]._id;
@@ -125,22 +126,22 @@ class SeededAdventure extends Application {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             title: "Adventure",
-            width: 480,
-            height: 480,
+            width: 640,
+            height: 640,
             resizable: true,
         });
     }
     _renderInner(data, options) {
-        let sector = game.actors.get("z1OUmGMahPYgQctB");
+        let sector = game.actors.get(SECTOR_ACTOR_ID);
         let planets = sector.items.contents.filter(i => i.data.type === 'planet');
 
         let html = `<div>`;
-        html += `<h3>Planets</h3>`;
+        html += `<h2>Planets</h2>`;
         html += `<div>`;
         html += `<table><tr>`
         planets.forEach((p, i) => {
             html += '<td>';
-            html += `<span class="planetName" id="${p.id}">${p.name}</span>&nbsp;`
+            html += `<span style="cursor:pointer" class="planetName" id="${p.id}">${p.name}</span>&nbsp;`
             html += '</td>';
             if (i % 3 === 2) {
                 html += '</tr>';
@@ -154,7 +155,7 @@ class SeededAdventure extends Application {
         }
         html += '</table>';
         html += `</div>`;
-        html += `<div id="output">`;
+        html += `<div id="output" style="margin-top:16px;">`;
         html += `</div>`;
         html += `</div>`;
         return $(html);
@@ -165,6 +166,12 @@ class SeededAdventure extends Application {
             let inner = await getAdventure($(ev.currentTarget).attr('id'));
             console.log(TextEditor.enrichHTML(inner));
             html.find('#output').html(TextEditor.enrichHTML(inner));
+        });
+        html.on('click', '.planetName', (ev) => {
+            let planetId = $(ev.currentTarget).data('planetId');
+            let sector = game.actors.get(SECTOR_ACTOR_ID);
+            let planet = sector.getOwnedItem(planetId);
+            planet.sheet.render(true);
         });
     }
 }
