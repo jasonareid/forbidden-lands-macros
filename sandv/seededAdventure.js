@@ -95,7 +95,12 @@ async function getAdventure(planetID) {
     let seedsId = game.packs.get("world.swn").index.contents.filter(i => i.name === 'Adventure Seeds')[0]._id;
     let table = await game.packs.get("world.swn").getDocument(seedsId);
 
-    let res = await table.draw({displayChat: false});
+    let res;
+    if(table.oldDraw) {
+        res = await table.oldDraw({displayChat: false});
+    } else {
+        res = await table.draw({displayChat: false});
+    }
     console.log(res.results[0].data.text);
     resultHtml += `<p>${res.results[0].data.text}</p>`;
     let needs = parseNeeds(res.results[0].data.text)
@@ -163,6 +168,7 @@ class SeededAdventure extends Application {
     activateListeners(html) {
         super.activateListeners(html);
         html.find('.srcPlanetName').on('click', async (ev) => {
+            console.log("!!!Remember this is not compatible with table draws macro to work with quickinsert!!!");
             let inner = await getAdventure($(ev.currentTarget).attr('id'));
             console.log(TextEditor.enrichHTML(inner));
             html.find('#output').html(TextEditor.enrichHTML(inner));
