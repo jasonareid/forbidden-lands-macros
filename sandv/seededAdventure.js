@@ -141,7 +141,7 @@ class SeededAdventure extends Application {
         html += `<table><tr>`
         planets.forEach((p, i) => {
             html += '<td>';
-            html += `<span style="cursor:pointer" class="planetName" id="${p.id}">${p.name}</span>&nbsp;`
+            html += `<span style="cursor:pointer" class="srcPlanetName" id="${p.id}">${p.name}</span>&nbsp;`
             html += '</td>';
             if (i % 3 === 2) {
                 html += '</tr>';
@@ -162,7 +162,7 @@ class SeededAdventure extends Application {
     }
     activateListeners(html) {
         super.activateListeners(html);
-        html.find('.planetName').on('click', async (ev) => {
+        html.find('.srcPlanetName').on('click', async (ev) => {
             let inner = await getAdventure($(ev.currentTarget).attr('id'));
             console.log(TextEditor.enrichHTML(inner));
             html.find('#output').html(TextEditor.enrichHTML(inner));
